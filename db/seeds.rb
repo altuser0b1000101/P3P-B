@@ -40,7 +40,7 @@ city_data = [
     },
     {
         name: "Miami",
-       image_url: "https://readcereal.com/wp-content/uploads/2019/06/Sprezzatura-portrait-4-800x1067.jpg",
+       image_url: "https://readcereal.com/wp-content/uploads/2018/01/journal_casablanca9.jpg",
        travel_info: "Hot",
        art: "Miami is art itself",
        design: "Never been",
@@ -49,7 +49,7 @@ city_data = [
     },
     {
         name: "Chicago",
-       image_url: "https://readcereal.com/wp-content/uploads/2019/07/AUGUST-portrait-36-800x1067.jpg",
+       image_url: "https://readcereal.com/wp-content/uploads/2018/02/peninsula_landscape.jpg",
        travel_info: "Denver x New York",
        art: "The delicate weavings of Rachel DuVall combine graphic compositions and subtle textures.",
        design: "Oki Sato, the founder and chief designer of Nendo, discusses design and life in Tokyo.",
