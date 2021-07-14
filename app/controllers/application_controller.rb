@@ -14,9 +14,7 @@ class ApplicationController < Sinatra::Base
     200
   end
  
-    get '/' do
-      "Hello World"
-    end
+  get "/city_guides" do
+    CityGuide.all.to_json
   end
-
-
+end
