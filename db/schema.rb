@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_07_13_194803) do
 
   create_table "city_guides", force: :cascade do |t|
+    t.string "name"
     t.string "image_url"
     t.string "travel_info"
     t.string "art"
