@@ -1,3 +1,3 @@
-class Record < ActiveRecord::Base
+class Rec < ActiveRecord::Base
     belongs_to :user
 end

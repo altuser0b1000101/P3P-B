@@ -2,6 +2,7 @@ puts "Deleting data..."
 User.destroy_all
 CityGuide.destroy_all
 Newsletter.destroy_all
+Rec.destroy_all
 
 puts "Creating users..."
 bill_dunphey = User.create(name: "Bill Dunphey", email: "bill@example.com")
@@ -73,23 +74,23 @@ city_guides = city_data.map{|attributes| CityGuide.create(attributes)}
 puts "Creating Newsletters..."
 newsletter_data = [
     {
-        user_id: User.rand.sample
-        city_guide_id: CityGuide.rand.sample
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
         newsletter_edition: 1
     },
     {
-        user_id: User.rand.sample
-        city_guide_id: CityGuide.rand.sample
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
         newsletter_edition: 2
     },
     {
-        user_id: User.rand.sample
-        city_guide_id: CityGuide.rand.sample
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
         newsletter_edition: 3
     },
     {
-        user_id: User.ids.sample
-        city_guide_id: CityGuide.ids.sample
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
         newsletter_edition: 4
     }
 ]
@@ -100,18 +101,21 @@ puts "Creating Recs..."
 
 rec_data = [
     {
-        user_id: User.ids.sample
+        user_id: User.ids.sample,
         ideas: "I think you should add other countries to your list"
     },
     {
-        user_id: User.ids.sample
+        user_id: User.ids.sample,
         ideas: "More things to do in Miami!"
     },
     {
-        user_id: User.ids.sample
+        user_id: User.ids.sample,
         ideas: "Siri, add lettuce to the grocery list"
     }
 ]
+
+recs = rec_data.map{|attributes| Rec.create(attributes)}
+
 
 puts "Done!"
 pry.start
