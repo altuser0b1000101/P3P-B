@@ -17,4 +17,16 @@ class ApplicationController < Sinatra::Base
   get "/city_guides" do
     CityGuide.all.to_json
   end
+
+  post "/login" do 
+   user = User.find_by(params[:email])
+     user.to_json
+  end
+
+  post "/users" do
+    user = User.create(email: params[:email], name: params[:name])
+    user.to_json
+  end
+
 end
+
