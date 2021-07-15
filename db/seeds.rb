@@ -5,11 +5,12 @@ Newsletter.destroy_all
 Rec.destroy_all
 
 puts "Creating users..."
-bill_dunphey = User.create(name: "Bill Dunphey", email: "grandbanks@gmail.com")
-jennifer_brown = User.create(name: "Jennifer Brown", email: "gregisnotgreg@gmail.com")
-john_walter = User.create(name: "John Walter", email: "walter6090@gmail.com")
-happy_clark = User.create(name: "Happy Clark", email: "idClark@gmail.com")
-lindsey_kenworth = User.create(name: "Lindsey Kenworth", email: "lkenworth@gmail.com")
+bill_dunphey = User.create(name: "Bill Dunphey", email: "bill@example.com")
+jennifer_brown = User.create(name: "Jennifer Brown", email: "jennifer@example.com")
+john_walter = User.create(name: "John Walter", email: "john@example.com")
+happy_clark = User.create(name: "Happy Clark", email: "happy@example.com")
+lindsey_kenworth = User.create(name: "Lindsey Kenworth", email: "lindsey@example.com")
+
 
 puts "Creating cities..."
 city_data = [
@@ -69,7 +70,53 @@ city_data = [
     }
 ]
 
-    city_guides = city_data.map{|attributes| CityGuide.create(attributes)}
+city_guides = city_data.map{|attributes| CityGuide.create(attributes)}
+
+puts "Creating Newsletters..."
+newsletter_data = [
+    {
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
+        newsletter_edition: 1
+    },
+    {
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
+        newsletter_edition: 2
+    },
+    {
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
+        newsletter_edition: 3
+    },
+    {
+        user_id: User.ids.sample,
+        city_guide_id: CityGuide.ids.sample,
+        newsletter_edition: 4
+    }
+]
+
+newsletter_edition = newsletter_data.map{|attributes|Newsletter.create(attributes)}
+
+puts "Creating Recs..."
+
+rec_data = [
+    {
+        user_id: User.ids.sample,
+        ideas: "I think you should add other countries to your list"
+    },
+    {
+        user_id: User.ids.sample,
+        ideas: "More things to do in Miami!"
+    },
+    {
+        user_id: User.ids.sample,
+        ideas: "Siri, add lettuce to the grocery list"
+    }
+]
+
+recs = rec_data.map{|attributes| Rec.create(attributes)}
+
 
     puts "Creating Newsletters..."
 newsletter_data = [
