@@ -18,14 +18,18 @@ class ApplicationController < Sinatra::Base
     CityGuide.all.to_json
   end
 
+  get "/users" do
+    User.all.to_json(include: [:newsletters, :city_guides])
+  end
+
   post "/login" do 
-   user = User.find_by(params[:email])
-     user.to_json
+   user = User.find_by(params[:email], params[:name])
+     user.to_json(include: [:newsletters, :city_guides])
   end
 
   post "/users" do
     user = User.create(email: params[:email], name: params[:name])
-    user.to_json
+    user.to_json(include: [:newsletters, :city_guides])
   end
 
 end
