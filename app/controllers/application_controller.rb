@@ -18,12 +18,30 @@ class ApplicationController < Sinatra::Base
     CityGuide.all.to_json
   end
 
+  get "/newsletters" do
+   newsletters.all.to_json
+  end
+
   get "/users" do
     User.all.to_json(include: [:newsletters, :city_guides])
   end
 
+  get "/users/cityguides" do
+    User.all.to_json(include: [:newsletters, :city_guides])
+  end
+
+  get "/users/:email/cityguides" do 
+    user = User.find(params[:email])
+    if user
+      user.newletter.to_json(include: [:city_guides])
+    else
+      {error: "guide not found"}.to_json
+    end
+  end
+
+
   post "/login" do 
-   user = User.find_by(params[:email], params[:name])
+   user = User.find_by(email: params[:email], name: params[:name])
      user.to_json(include: [:newsletters, :city_guides])
   end
 
@@ -31,6 +49,8 @@ class ApplicationController < Sinatra::Base
     user = User.create(email: params[:email], name: params[:name])
     user.to_json(include: [:newsletters, :city_guides])
   end
+
+
 
 end
 
